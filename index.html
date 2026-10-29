@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>내마음의양식 서재</title>
+<meta name="description" content="유튜브 「내마음의양식」에서 소개한 고전문학을 한곳에 모았습니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* 시니어 시청자를 생각해 글씨는 크게, 대비는 또렷하게. 색은 채널 배너(안나 앙케르 그림)의 따뜻한 갈색·크림 */
+  :root {
+    --bg: #f6f1e7; --paper: #fffdf8; --ink: #2a211b; --muted: #6f6253; --line: #e4d9c6;
+    --accent: #8e3b2f; --accent-ink: #fff; --gold: #b07a2a; --shadow: 0 10px 30px rgba(60, 40, 20, .12);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Noto Sans KR", sans-serif; font-size: 19px; line-height: 1.7; word-break: keep-all; overflow-wrap: anywhere; }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+  /* 머리: 배너 그림 위에 채널 이름 */
+  header { position: relative; background: #2a1a12 url(img/banner.jpg) center 40% / cover; color: #f6ead4; }
+  header::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(34,20,12,.88) 0%, rgba(34,20,12,.7) 45%, rgba(34,20,12,.25) 100%); }
+  .hero { position: relative; display: flex; align-items: center; gap: 22px; padding-top: 48px; padding-bottom: 40px; }
+  .hero img { width: 104px; height: 104px; border-radius: 50%; border: 3px solid #f0d9b0; flex: none; }
+  .hero h1 { margin: 0; font-family: "Nanum Myeongjo", serif; font-weight: 800; font-size: clamp(32px, 6vw, 48px); line-height: 1.2; }
+  .hero p { margin: 8px 0 18px; font-size: 19px; color: #ecdcbf; }
+  .yt { display: inline-flex; align-items: center; gap: 10px; background: #f6ead4; color: #2a1a12; text-decoration: none; font-weight: 700;
+        padding: 12px 20px; border-radius: 999px; font-size: 18px; }
+  .yt svg { width: 22px; height: 22px; }
+  /* 휴대폰: 로고를 위에, 글을 아래로 (제목이 어색하게 끊기지 않게) */
+  @media (max-width: 600px) {
+    .hero { flex-direction: column; align-items: flex-start; gap: 14px; padding-top: 32px; padding-bottom: 30px; }
+    .hero img { width: 76px; height: 76px; }
+    .hero h1 { font-size: 34px; }
+  }
+
+  /* 쿠팡 파트너스 고지 */
+  .notice { margin: 22px 0 0; background: #fff6e0; border: 1px solid #ecd59c; color: #6b4a14; border-radius: 12px; padding: 14px 18px; font-size: 16px; }
+
+  /* 탭과 검색 */
+  .tools { position: sticky; top: 0; z-index: 5; background: rgba(246, 241, 231, .96); backdrop-filter: blur(6px); padding: 14px 0; border-bottom: 1px solid var(--line); margin-top: 18px; }
+  .tabs { display: flex; gap: 10px; flex-wrap: wrap; }
+  .tab { appearance: none; border: 2px solid var(--line); background: var(--paper); color: var(--ink); font: inherit; font-size: 18px; font-weight: 700;
+         padding: 10px 18px; border-radius: 999px; cursor: pointer; }
+  .tab[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .search { margin-top: 12px; width: 100%; font: inherit; font-size: 19px; padding: 14px 18px; border-radius: 12px; border: 2px solid var(--line); background: var(--paper); color: var(--ink); }
+  .search:focus, .tab:focus-visible, .btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+  /* 책 카드: 휴대폰에서는 한 줄에 한 권, 넓은 화면에서는 두 권 */
+  .grid { display: grid; grid-template-columns: 1fr; gap: 22px; padding: 26px 0 40px; }
+  @media (min-width: 760px) { .grid { grid-template-columns: 1fr 1fr; } }
+  .card { background: var(--paper); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+  .pic { aspect-ratio: 16 / 9; background: #3a2a20 center / cover no-repeat; position: relative; }
+  .pic.type { display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px;
+              background: radial-gradient(ellipse at 50% 45%, #f1eadb 0%, #e8dfcb 60%, #cdbf9f 100%); }
+  .pic.type > span { font-family: "Nanum Myeongjo", serif; font-weight: 800; font-size: 26px; color: #3a2a20; line-height: 1.5; }
+  .thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .badges { position: absolute; left: 14px; top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .badge { background: rgba(20, 14, 10, .78); color: #f6ead4; font-size: 15px; font-weight: 700; padding: 4px 12px; border-radius: 999px; }
+  .body { padding: 22px 22px 24px; display: flex; flex-direction: column; flex: 1; }
+  .title { margin: 0; font-family: "Nanum Myeongjo", serif; font-weight: 800; font-size: 30px; line-height: 1.3; }
+  .meta { margin: 4px 0 12px; color: var(--muted); font-size: 17px; }
+  .hook { margin: 0 0 12px; font-size: 19px; }
+  .quote { margin: 0 0 16px; padding: 10px 16px; border-left: 4px solid var(--gold); background: #fbf5e8; font-family: "Nanum Myeongjo", serif; font-weight: 700; font-size: 18px; color: #4a3a2a; }
+  .actions { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .btn { display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 18px;
+         padding: 15px 12px; border-radius: 12px; min-height: 56px; text-align: center; white-space: nowrap; }
+  .btn.buy { background: var(--accent); color: #fff; }
+  .btn.watch { background: #fff; color: var(--ink); border: 2px solid var(--line); }
+  .btn.off { background: #eee6d8; color: #9a8c79; pointer-events: none; }
+  .empty { padding: 40px 0; text-align: center; color: var(--muted); }
+  footer { border-top: 1px solid var(--line); padding: 26px 0 40px; color: var(--muted); font-size: 15px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hero">
+    <img src="img/logo.png" alt="내마음의양식 로고">
+    <div>
+      <h1>내마음의양식 서재</h1>
+      <p>유튜브에서 들려드린 고전문학을 한곳에 모았습니다.</p>
+      <a class="yt" href="https://www.youtube.com/@마음양식채널" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#c4302b" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8z"/><path fill="#fff" d="M9.75 15.5V8.5L15.8 12z"/></svg>
+        유튜브 채널 바로가기
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="notice">⚠️ 이 페이지의 구매 링크는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+  <div class="tools">
+    <div class="tabs" role="group" aria-label="분류">
+      <button class="tab" data-kind="all" aria-pressed="true">전체</button>
+      <button class="tab" data-kind="audiobook" aria-pressed="false">🎧 오디오북으로 들은 책</button>
+      <button class="tab" data-kind="shorts" aria-pressed="false">✒️ 작가 이야기</button>
+    </div>
+    <input class="search" type="search" placeholder="책 제목이나 작가 이름으로 찾기" aria-label="검색">
+  </div>
+  <section class="grid" id="grid"></section>
+</main>
+
+<footer class="wrap">
+  그림과 사진은 저작권이 만료된 명화·자료와 채널에서 직접 만든 이미지입니다. 문의: 유튜브 채널 정보의 이메일
+</footer>
+
+<script src="books.js"></script>
+<script>
+  const grid = document.getElementById("grid");
+  const search = document.querySelector(".search");
+  let kind = "all";
+  const KIND = { audiobook: "🎧 오디오북", shorts: "✒️ 작가 이야기" };
+  // 유튜브 주소(watch?v=, youtu.be/, shorts/)에서 영상 ID만 꺼냄
+  const ytId = (u) => ((u || "").match(/(?:v=|youtu\.be\/|shorts\/)([\w-]{11})/) || [])[1] || "";
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  function render() {
+    const q = search.value.trim().toLowerCase();
+    const list = window.BOOKS.filter((b) => (kind === "all" || b.kinds.includes(kind)) &&
+      (!q || (b.title + b.author).toLowerCase().includes(q)));
+    grid.innerHTML = list.length ? list.map((b) => `
+      <article class="card">
+        ${b.img
+          ? `<div class="pic" style="background-image:url('${esc(b.img)}');background-position:${esc(b.pos || "center")}">`
+          : ytId(b.youtube)
+          ? `<div class="pic"><img class="thumb" alt="" loading="lazy" src="https://i.ytimg.com/vi/${ytId(b.youtube)}/maxresdefault.jpg"
+               onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${ytId(b.youtube)}/hqdefault.jpg'">`
+          : `<div class="pic type"><span>${esc(b.quote || b.title)}</span>`}
+          <div class="badges">${b.kinds.map((k) => `<span class="badge">${KIND[k]}</span>`).join("")}</div>
+        </div>
+        <div class="body">
+          <h2 class="title">${esc(b.title)}</h2>
+          <p class="meta">${esc(b.author)} · ${esc(b.year)}</p>
+          <p class="hook">${esc(b.hook)}</p>
+          ${b.quote && b.img ? `<p class="quote">${esc(b.quote)}</p>` : ""}
+          <div class="actions">
+            ${b.coupang ? `<a class="btn buy" href="${esc(b.coupang)}" target="_blank" rel="noopener sponsored">📖 책 보러 가기</a>`
+                        : `<span class="btn buy off">📖 준비 중</span>`}
+            <a class="btn watch" href="${esc(b.youtube || "https://www.youtube.com/@마음양식채널")}" target="_blank" rel="noopener">▶ 영상 보기</a>
+          </div>
+        </div>
+      </article>`).join("") : `<p class="empty">찾는 책이 없어요. 다른 이름으로 검색해 보세요.</p>`;
+  }
+  document.querySelectorAll(".tab").forEach((t) => t.addEventListener("click", () => {
+    kind = t.dataset.kind;
+    document.querySelectorAll(".tab").forEach((x) => x.setAttribute("aria-pressed", x === t ? "true" : "false"));
+    render();
+  }));
+  search.addEventListener("input", render);
+  render();
+</script>
+</body>
+</html>
