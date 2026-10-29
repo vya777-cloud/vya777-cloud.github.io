@@ -20,7 +20,7 @@ window.BOOKS = [
     hook: "아버지가 살해되고, 세 형제가 의심을 받습니다. 총살 5분 전에 살아 돌아온 작가가 남긴 마지막 대답.",
     kinds: ["audiobook", "shorts"], coupang: "https://link.coupang.com/a/ie7w7rQXOS", youtube: "https://www.youtube.com/watch?v=d2uMxrQfkxk" },
   { title: "이방인", author: "알베르 카뮈", year: "1942", img: "img/camus.jpg", pos: "center 25%",
-    hook: "“오늘, 엄마가 죽었다.” 어머니의 장례식에서 울지 않았다는 이유로 재판을 받은 남자의 이야기.",
+    hook: "“오늘, 엄마가 죽었다.” 사람을 죽인 뫼르소. 그런데 법정이 묻는 것은 어머니 장례식에서 왜 울지 않았느냐는 것이었습니다.",
     kinds: ["audiobook", "shorts"], coupang: "https://link.coupang.com/a/ie7yuLalA4", youtube: "https://www.youtube.com/watch?v=2Ohd2qno79w" },
   { title: "젊은 베르테르의 슬픔", author: "요한 볼프강 폰 괴테", year: "1774", img: "img/werther.jpg", pos: "center",
     hook: "스물다섯 청년이 쓴 소설 한 권에 유럽의 젊은이들이 푸른 연미복과 노란 조끼를 입고 다녔습니다.",
