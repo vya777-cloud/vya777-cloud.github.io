@@ -68,8 +68,9 @@
   .hook.open { display: block; }
   .quote { display: none; }
   .actions { margin-top: auto; display: grid; grid-template-columns: 1fr; gap: 6px; }
-  .btn { display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; font-weight: 700; font-size: 15px;
-         padding: 8px 6px; border-radius: 10px; min-height: 44px; text-align: center; white-space: nowrap; }
+  /* 버튼 글은 덩이(span)째로만 줄이 바뀜: 좁은 카드에서는 "쿠팡에서 / 책 구매하기" 두 줄 */
+  .btn { display: flex; flex-wrap: wrap; align-items: center; align-content: center; justify-content: center; gap: 0 5px; text-decoration: none; font-weight: 700; font-size: 15px;
+         line-height: 1.3; padding: 8px 6px; border-radius: 10px; min-height: 44px; text-align: center; white-space: nowrap; }
   @media (min-width: 1040px) {
     .body { padding: 14px 16px 16px; }
     .title { font-size: 21px; }
@@ -144,7 +145,7 @@
           <p class="hook" title="누르면 전부 보여요">${esc(b.hook)}</p>
           ${b.quote && b.img ? `<p class="quote">${esc(b.quote)}</p>` : ""}
           <div class="actions">
-            ${b.coupang ? `<a class="btn buy" href="${esc(b.coupang)}" target="_blank" rel="noopener sponsored">📖 책 보기</a>`
+            ${b.coupang ? `<a class="btn buy" href="${esc(b.coupang)}" target="_blank" rel="noopener sponsored"><span>📖 쿠팡에서</span> <span>책 구매하기</span></a>`
                         : `<span class="btn buy off">📖 준비 중</span>`}
             <a class="btn watch" href="${esc(b.youtube || "https://www.youtube.com/@마음양식채널")}" target="_blank" rel="noopener">▶ 영상 보기</a>
           </div>
