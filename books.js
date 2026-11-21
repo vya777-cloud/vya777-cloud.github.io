@@ -118,6 +118,9 @@ window.BOOKS = [
     date: "2025-02-20T20:15", coupang: "https://link.coupang.com/a/ifddDH5oyq", youtube: "https://www.youtube.com/watch?v=CujvtmtDP9Q" },
 
   // ── 작가 이야기 쇼츠로 올린 책 (2026-11-19 추가, 새 영상부터) ──
+  { title: "부활", author: "레프 톨스토이", year: "1899", img: "img/s35_resurrection.jpg", pos: "center 35%",
+    hook: "귀족 청년은 하녀 카츄샤를 버리며 백 루블을 쥐여 주고 떠났습니다. 10년 뒤 그는 배심원석에 앉고, 그녀는 피고석에 섭니다. 실제 사건에서 시작된 이야기.",
+    date: "2026-11-20T18:30", coupang: "https://link.coupang.com/a/iQEbuIC96a", youtube: "https://www.youtube.com/shorts/55vcrVm0YfQ" },
   { title: "무기여 잘 있거라", author: "어니스트 헤밍웨이", year: "1929", img: "img/s34_farewell.jpg", pos: "center 35%",
     hook: "전선에서 다친 헤밍웨이가 사랑한 간호사 아그네스. 그녀는 편지로 이별을 알렸습니다. “당신은 아직 어린애예요.” 10년 뒤, 그 사랑은 소설이 됩니다.",
     date: "2026-11-18T18:30", coupang: "https://link.coupang.com/a/iNvMkCkOUm", youtube: "https://www.youtube.com/shorts/lQ6sNSih4ZY" },
