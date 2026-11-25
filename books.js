@@ -118,6 +118,15 @@ window.BOOKS = [
     date: "2025-02-20T20:15", coupang: "https://link.coupang.com/a/ifddDH5oyq", youtube: "https://www.youtube.com/watch?v=CujvtmtDP9Q" },
 
   // ── 작가 이야기 쇼츠로 올린 책 (2026-11-19 추가, 새 영상부터) ──
+  { title: "고리오 영감", author: "오노레 드 발자크", year: "1835", img: "img/s30_goriot.jpg", pos: "center 0%",
+    hook: "한밤중, 늙은 하숙인이 죽은 아내가 사 준 은그릇을 밧줄로 비틉니다. 화려한 귀부인들이 찾아오던 이 노인, 그 귀부인들은 애인이 아니었습니다.",
+    quote: "가엾은 아이.", date: "2026-11-23T19:00", coupang: "https://link.coupang.com/a/iYPsSwcaYu", youtube: "https://www.youtube.com/shorts/pAud3C25wgk" },
+  { title: "플랜더스의 개", author: "위다", year: "1872", img: "img/s32_flanders.jpg", pos: "center 80%",
+    hook: "“파트라슈, 피곤하지?”는 원작에 없는 말입니다. 성탄 전날 모든 것을 잃은 열다섯 살 넬로, 루벤스의 그림 앞에서 개를 안고 한 진짜 말은 무엇이었을까요?",
+    quote: "늘 함께였던 둘은 죽어서도 떨어지지 않았다.", date: "2026-11-22T19:15", coupang: "https://link.coupang.com/a/iYPnFa8WrI", youtube: "https://www.youtube.com/shorts/DPijW1G_RoE" },
+  { title: "톰 아저씨의 오두막", author: "해리엇 비처 스토", year: "1852", img: "img/s31_uncletom.jpg", pos: "center 30%",
+    hook: "팔려 가는 톰의 목에 열세 살 조지가 은화를 걸어 주며 약속합니다. “꼭 데리러 갈게요.” 그 약속은 몇 해 뒤 어떻게 되었을까요?",
+    date: "2026-11-21T19:00", coupang: "", youtube: "https://www.youtube.com/shorts/X51KbSgTq7o" },
   { title: "부활", author: "레프 톨스토이", year: "1899", img: "img/s35_resurrection.jpg", pos: "center 35%",
     hook: "귀족 청년은 하녀 카츄샤를 버리며 백 루블을 쥐여 주고 떠났습니다. 10년 뒤 그는 배심원석에 앉고, 그녀는 피고석에 섭니다. 실제 사건에서 시작된 이야기.",
     date: "2026-11-20T18:30", coupang: "https://link.coupang.com/a/iQEbuIC96a", youtube: "https://www.youtube.com/shorts/55vcrVm0YfQ" },
