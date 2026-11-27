@@ -27,7 +27,4 @@ window.BOOKS = [
   { title: "반지 원정대 비기너 에디션", sub: "세트 전 3권 · 아르테", img: "img/08_fellowship_beginner.png",
     hook: "두꺼운 책이 부담스러운 분을 위해 『반지 원정대』를 세 권으로 나눴습니다. 가운데땅에 처음 들어서는 분께 권합니다.",
     coupang: "https://link.coupang.com/a/i0SNfnihUq", video: "" },
-  { title: "톨킨의 세계", sub: "존 가스 · 중앙북스", img: "img/09_tolkiens_world.jpg",
-    hook: "샤이어, 모리아, 곤도르는 어디에서 왔을까. 톨킨이 실제로 걷고 보았던 곳들에서 가운데땅의 뿌리를 찾아갑니다.",
-    coupang: "https://link.coupang.com/a/i0SOuoO0zc", video: "" },
 ];
