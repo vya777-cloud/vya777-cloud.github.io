@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ko" data-theme="b">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>반지의 고블린 서재</title>
+<meta name="description" content="유튜브 「반지의 고블린」이 고른 톨킨의 책들">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ── 시안 A: 양피지 지도 ── */
+:root, [data-theme="a"] {
+  --bg: #e9dcbf; --bg2: #d9c69c; --paper: #f4ead2; --ink: #2b2014; --ink2: #5a4630;
+  --gold: #9a7228; --line: #b89a62; --btn: #5b2a1a; --btnText: #f4ead2; --shadow: rgba(60,40,15,.25);
+  --heroGlow: rgba(255,248,225,.7);
+}
+[data-theme="b"] { /* 시안 B: 어둠숲 서고 */
+  --bg: #0f1612; --bg2: #18241c; --paper: #1c2a21; --ink: #e8dcb8; --ink2: #b3a681;
+  --gold: #c9a24a; --line: #4a5a3e; --btn: #c9a24a; --btnText: #14100a; --shadow: rgba(0,0,0,.55);
+  --heroGlow: rgba(201,162,74,.12);
+}
+[data-theme="c"] { /* 시안 C: 엘프의 별빛 */
+  --bg: #0b1024; --bg2: #141b3a; --paper: #151d3d; --ink: #e6ebf7; --ink2: #a9b4d4;
+  --gold: #c8d2ee; --line: #3a4878; --btn: #dfe6fb; --btnText: #0b1024; --shadow: rgba(0,0,10,.6);
+  --heroGlow: rgba(200,215,255,.10);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: "Gowun Batang", "Nanum Myeongjo", serif; line-height: 1.6;
+  min-height: 100vh;
+}
+/* 바탕 질감 */
+[data-theme="a"] body {
+  background:
+    radial-gradient(ellipse at 50% 0%, var(--heroGlow), transparent 60%),
+    radial-gradient(circle at 15% 30%, rgba(120,85,40,.10), transparent 35%),
+    radial-gradient(circle at 85% 70%, rgba(120,85,40,.12), transparent 40%),
+    repeating-linear-gradient(0deg, rgba(90,60,20,.025) 0 2px, transparent 2px 5px),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+}
+[data-theme="b"] body {
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(201,162,74,.18), transparent 55%),
+    radial-gradient(circle at 10% 80%, rgba(60,90,60,.25), transparent 40%),
+    linear-gradient(180deg, #0c120f, #141e17 60%, #0c120f);
+}
+[data-theme="c"] body {
+  background:
+    radial-gradient(1px 1px at 12% 18%, #fff, transparent),
+    radial-gradient(1px 1px at 72% 12%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 40% 35%, #dfe6ff, transparent),
+    radial-gradient(1px 1px at 88% 44%, #fff, transparent),
+    radial-gradient(1px 1px at 25% 62%, #cfd8ff, transparent),
+    radial-gradient(1.5px 1.5px at 60% 78%, #fff, transparent),
+    radial-gradient(1px 1px at 8% 90%, #fff, transparent),
+    radial-gradient(ellipse at 50% 0%, rgba(140,160,255,.22), transparent 55%),
+    linear-gradient(180deg, #070b1c, #0f1633 60%, #0a0f24);
+  background-attachment: fixed;
+}
+/* 지도 바탕 (화면에 고정, 위쪽은 또렷하고 아래로 갈수록 흐려짐) */
+body::before { content: ""; position: fixed; inset: 0; z-index: -2; background-size: cover; background-position: center 30%; }
+body::after { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+[data-theme="a"] body::before { background-image: url("img/bg_map_film.jpg"); opacity: .55; }
+[data-theme="a"] body::after { background: radial-gradient(ellipse at 50% 18%, transparent 0%, rgba(233,220,191,.35) 55%, rgba(233,220,191,.8) 100%); }
+[data-theme="b"] body::before { background-image: url("img/bg_map_gold.jpg"); opacity: .6; }
+[data-theme="b"] body::after { background: radial-gradient(ellipse at 50% 18%, transparent 0%, rgba(12,18,15,.45) 55%, rgba(12,18,15,.85) 100%); }
+[data-theme="c"] body::before { background-image: url("img/bg_map_silver.jpg"); opacity: .45; }
+[data-theme="c"] body::after { background: radial-gradient(ellipse at 50% 18%, transparent 0%, rgba(9,13,30,.45) 55%, rgba(9,13,30,.85) 100%); }
+body { position: relative; isolation: isolate; }
+/* 카드는 반투명이라 뒤 지도가 살짝 비침 */
+[data-theme="a"] .card { background: rgba(244,234,210,.88); backdrop-filter: blur(1.5px); }
+[data-theme="b"] .card { background: rgba(22,34,26,.86); backdrop-filter: blur(1.5px); }
+[data-theme="c"] .card { background: linear-gradient(180deg, rgba(30,40,80,.82), rgba(18,25,55,.88)); backdrop-filter: blur(1.5px); }
+/* 머리 글씨가 지도 위에서도 읽히게 */
+header h1, header .tagline, header .eyebrow { text-shadow: 0 1px 2px var(--bg), 0 0 18px var(--bg), 0 0 30px var(--bg); }
+.notice { background: color-mix(in srgb, var(--bg) 70%, transparent); }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
+
+/* 머리 */
+header { text-align: center; padding: 56px 0 28px; position: relative; }
+.eyebrow { font-family: "Cinzel", serif; letter-spacing: .32em; font-size: 13px; color: var(--gold); }
+h1 { font-size: clamp(30px, 6vw, 52px); margin: 10px 0 6px; font-weight: 700; letter-spacing: -.01em; }
+.tagline { color: var(--ink2); margin: 0 auto; max-width: 560px; font-size: 16px; }
+.rule { display: flex; align-items: center; gap: 14px; justify-content: center; margin: 22px auto 0; color: var(--gold); }
+.rule::before, .rule::after { content: ""; height: 1px; width: min(28vw, 220px); background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.rule span { font-family: "Cinzel", serif; font-size: 18px; }
+.yt { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; padding: 10px 20px; border-radius: 999px;
+  border: 1px solid var(--gold); color: var(--ink); text-decoration: none; font-weight: 700; font-size: 15px; }
+.yt:hover { background: var(--gold); color: var(--bg); }
+
+.notice { margin: 8px auto 28px; padding: 10px 14px; font-size: 13px; color: var(--ink2); text-align: center;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+/* 책 격자 */
+.grid { display: grid; gap: 22px; grid-template-columns: repeat(2, 1fr); padding-bottom: 60px; }
+@media (min-width: 720px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1000px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; overflow: hidden;
+  display: flex; flex-direction: column; box-shadow: 0 6px 18px var(--shadow); position: relative; }
+[data-theme="a"] .card { border-radius: 2px; outline: 1px solid rgba(154,114,40,.35); outline-offset: -6px; }
+[data-theme="b"] .card { border-color: #3d4b33; }
+[data-theme="b"] .card::before { content: ""; position: absolute; inset: 0; border: 1px solid rgba(201,162,74,.25); margin: 5px; pointer-events: none; border-radius: 4px; }
+[data-theme="c"] .card { background: linear-gradient(180deg, rgba(30,40,80,.85), rgba(18,25,55,.9)); border-color: #34417a; }
+.cover { aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; padding: 18px;
+  background: radial-gradient(ellipse at 50% 40%, rgba(255,255,255,.18), transparent 70%); }
+[data-theme="b"] .cover { background: radial-gradient(ellipse at 50% 45%, rgba(201,162,74,.16), transparent 70%); }
+[data-theme="c"] .cover { background: radial-gradient(ellipse at 50% 45%, rgba(200,215,255,.14), transparent 70%); }
+.cover img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 8px 12px var(--shadow)); }
+.body { padding: 12px 14px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.title { font-weight: 700; font-size: 17px; line-height: 1.35; }
+.sub { font-size: 12.5px; color: var(--gold); }
+.hook { font-size: 13.5px; color: var(--ink2); margin: 4px 0 8px; flex: 1;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.btns { display: flex; flex-direction: column; gap: 6px; }
+.buy, .watch { display: block; text-align: center; padding: 9px 10px; border-radius: 4px; font-size: 14px; font-weight: 700; text-decoration: none; }
+.buy { background: var(--btn); color: var(--btnText); }
+.buy.off { background: transparent; color: var(--ink2); border: 1px dashed var(--line); font-weight: 400; pointer-events: none; }
+.watch { border: 1px solid var(--line); color: var(--ink); }
+
+footer { text-align: center; color: var(--ink2); font-size: 12.5px; padding: 20px 0 40px; border-top: 1px solid var(--line); }
+
+/* 시안 비교용 단추 (주소 뒤에 ?mock 일 때만 보임) */
+.mockbar { display: none; position: fixed; right: 12px; bottom: 12px; gap: 6px; z-index: 9; }
+.mock .mockbar { display: flex; }
+.mockbar button { font-family: inherit; padding: 8px 12px; border-radius: 999px; border: 1px solid #888; background: #fff; color: #111; cursor: pointer; }
+.mockbar button.on { background: #111; color: #fff; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">THE GOBLIN'S LIBRARY</div>
+    <h1>반지의 고블린 서재</h1>
+    <p class="tagline">영상에서 들려드린 톨킨의 이야기, 원작으로 끝까지 읽고 싶은 분들을 위해 골라 두었습니다.</p>
+    <div class="rule"><span>✦</span></div>
+    <a class="yt" href="https://www.youtube.com/@반지의고블린" target="_blank" rel="noopener">▶ 반지의 고블린 채널 바로가기</a>
+  </header>
+
+  <p class="notice">이 페이지의 구매 링크는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+
+  <main class="grid" id="grid"></main>
+
+  <footer>반지의 고블린 · 책 정보와 가격은 쿠팡 상품 페이지 기준으로 바뀔 수 있습니다.</footer>
+</div>
+
+
+<script src="books.js"></script>
+<script>
+(function () {
+  var grid = document.getElementById('grid');
+  var esc = function (s) { return String(s || '').replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
+  (window.BOOKS || []).forEach(function (b) {
+    var buy = b.coupang
+      ? '<a class="buy" href="' + esc(b.coupang) + '" target="_blank" rel="noopener sponsored">쿠팡에서 책 구매하기</a>'
+      : '<span class="buy off">링크 준비 중</span>';
+    var watch = b.video ? '<a class="watch" href="' + esc(b.video) + '" target="_blank" rel="noopener">이 책 이야기 영상 보기</a>' : '';
+    grid.insertAdjacentHTML('beforeend',
+      '<article class="card"><div class="cover"><img loading="lazy" src="' + esc(b.img) + '" alt="' + esc(b.title) + ' 표지"></div>' +
+      '<div class="body"><div class="title">' + esc(b.title) + '</div><div class="sub">' + esc(b.sub) + '</div>' +
+      '<p class="hook">' + esc(b.hook) + '</p><div class="btns">' + buy + watch + '</div></div></article>');
+  });
+
+  // 시안 고르기: ?theme=b 처럼 주소로, 또는 ?mock 이면 오른쪽 아래 단추로
+  var q = new URLSearchParams(location.search);
+  var root = document.documentElement;
+  if (q.get('theme')) root.setAttribute('data-theme', q.get('theme'));
+  if (q.has('mock')) document.body.classList.add('mock');
+  var btns = document.querySelectorAll('.mockbar button');
+  function mark() { btns.forEach(function (x) { x.classList.toggle('on', x.dataset.t === root.getAttribute('data-theme')); }); }
+  btns.forEach(function (x) { x.addEventListener('click', function () { root.setAttribute('data-theme', x.dataset.t); mark(); }); });
+  mark();
+})();
+</script>
+</body>
+</html>
