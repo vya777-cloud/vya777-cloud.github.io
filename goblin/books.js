@@ -27,4 +27,7 @@ window.BOOKS = [
   { title: "반지 원정대 비기너 에디션", sub: "세트 전 3권 · 아르테", img: "img/08_fellowship_beginner.png",
     hook: "두꺼운 책이 부담스러운 분을 위해 『반지 원정대』를 세 권으로 나눴습니다. 가운데땅에 처음 들어서는 분께 권합니다.",
     coupang: "https://link.coupang.com/a/i0SNfnihUq", video: "" },
+  { title: "반지의 제왕: 가운데땅에서의 대결", sub: "보드게임 · 2인용 · 아스모디", img: "img/09_duel_middleearth.jpg",
+    hook: "한 사람은 반지 원정대, 한 사람은 사우론. 반지를 운명의 산으로 보내느냐, 가운데땅을 손에 넣느냐를 두고 30분 동안 맞붙는 두 사람용 대결 게임입니다.",
+    coupang: "https://link.coupang.com/a/i0Tu8PKF6i", video: "" },
 ];
